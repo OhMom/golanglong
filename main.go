@@ -11,7 +11,12 @@ func (apiHandler) ServeHTTP(http.ResponseWriter, *http.Request) {}
 
 func main() {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
+	mux.HandleFunc("/", )
+
+	http.ListenAndServe(":8080", mux)
+}
+ 
+func(w http.ResponseWriter, req *http.Request) {
 		// The "/" pattern matches everything, so we need to check
 		// that we're at the root here.
 		if req.URL.Path != "/" {
@@ -19,7 +24,4 @@ func main() {
 			return
 		}
 		fmt.Fprintf(w, "OhMom!")
-	})
-
-	http.ListenAndServe(":8080", mux)
-}
+	}
